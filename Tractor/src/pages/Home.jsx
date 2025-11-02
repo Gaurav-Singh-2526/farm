@@ -9,20 +9,7 @@ import { handleSuccess } from '../Errorhandle';
 
 const HeroSection = () => {
   //login functinality
-  const [loggedInUser, setLoggedInUser] = useState("");
-  // const [products, setProducts] = useState([]);
-  const navigate = useNavigate();
-  useEffect(() => {
-    setLoggedInUser(localStorage.getItem("loggedInUser"));
-  }, []);
-  const handleLogout = (e) => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("loggedInUser");
-    handleSuccess("User Loggedout");
-    setTimeout(() => {
-      navigate("/signin");
-    }, 1000);
-  };
+  
   //end login function
   const [currentIndex, setCurrentIndex] = useState(0);
   const slideCount = 4; // Total number of slides
@@ -103,25 +90,10 @@ const HeroSection = () => {
         </div>
       </div>
       <div>
-            <HomeData />
+        <HomeData />
       </div>
       {/* //logout function */}
-      <div>
-      <h1>{loggedInUser}</h1>
-      <button onClick={handleLogout}>Logout</button>
-      {/* <div>
-        {products.map((item,index) => (
-          <ul key={index}>
-            <span>
-              {item.name}: {item.price}
-            </span>
-          </ul>
-        ))}
-        
-      </div> */}
-
-      <ToastContainer />
-    </div>
+     
     </>
   );
 };

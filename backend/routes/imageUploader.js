@@ -1,4 +1,6 @@
 const express = require("express");
+require("dotenv").config();
+
 const fs = require("fs");
 const path = require("path");
 
@@ -12,7 +14,7 @@ router.get("/images", (req, res) => {
             return res.status(500).json({ message: "Error reading directory" });
         }
 
-        const imageUrls = files.map(file => `http://localhost:3004/uploads/${file}`);
+        const imageUrls = files.map(file => `${process.env.BASE_URL}/uploads/${file}`);
         res.json(imageUrls);
     });
 });

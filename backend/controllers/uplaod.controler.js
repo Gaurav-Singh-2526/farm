@@ -80,6 +80,8 @@
 
 
 const { Rental } = require("../model/model");
+require("dotenv").config();
+
 
 exports.uploadFile = async (req, res) => {
     console.log("📥 Inside uploadFile Controller");
@@ -94,7 +96,7 @@ exports.uploadFile = async (req, res) => {
         return res.status(400).json({ error: "Please provide toolName, location, and price" });
     }
 
-    const imageUrl = `http://localhost:3004/uploads/${req.file.filename}`;
+    const imageUrl = `${process.env.BASE_URL}/uploads/${req.file.filename}`;
 
     try {
         const rental = new Rental({

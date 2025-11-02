@@ -61,7 +61,7 @@ h2 {
     outline: none;
 }
 
-button {
+.login-btn{
     width: 100%;
     background: #6E8EF8;
     color: white;

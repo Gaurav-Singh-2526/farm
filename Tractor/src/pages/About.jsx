@@ -130,16 +130,16 @@ const About = () => {
       <div className="team-section">
         <h2>Meet Our Team</h2>
         <p>We are a passionate team dedicated to supporting farmers with the best equipment solutions.</p>
-        <div className="team-grid">
+        {/* <div className="team-grid">
           <div className="team-card">
-            <img src="/images/Gaurav.jpg" alt="Founder" className="team-img" />
+            <img src="/images/gaurav.jpg" alt="Founder" className="team-img" />
             <p className="team-role">Founder</p>
           </div>
           <div className="team-card">
             <img src="/images/Aryan-singh.jpg" alt="Co-Founder" className="team-img" />
             <p className="team-role">Co-Founder</p>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -1,86 +1,145 @@
-const mongoose = require("mongoose");
-const bcrypt=require("bcryptjs");
+// const mongoose = require("mongoose");
+// const bcrypt = require("bcryptjs");
 
-// const UserSchema = new mongoose.Schema({
-//     Name: {
-//         type: String,
-//         required: [true, "Name is required"],
-//         trim: true,  
+// const UserSchema = new mongoose.Schema(
+//   {
+//     fullName: {
+//       type: String,
+//       required: [true, "Full name is required"],
+//       trim: true,
 //     },
-//     Email: {
+//     email: {
+//       type: String,
+//       required: [true, "Email is required"],
+//       unique: true,
+//       lowercase: true,
+//       trim: true,
+//     },
+//     password: {
+//       type: String,
+//       required: [true, "Password is required"],
+//     },
+//   },
+//   { timestamps: true }
+// );
+
+// // Hash password before saving
+// UserSchema.pre("save", async function (next) {
+//   if (!this.password) return next(new Error("Password is required"));
+
+//   if (this.isModified("password")) {
+//     this.password = await bcrypt.hash(this.password, 10);
+//   }
+
+//   console.log("After Hashing - Password:", this.password);
+//   next();
+// });
+// const User = mongoose.model("User", UserSchema);
+
+// const RentalSchema = new mongoose.Schema({
+//     toolName: {
 //         type: String,
 //         required: true,
-//         unique: true,
 //     },
-//     Password: {
+//     location: {
 //         type: String,
-       
+//         required: true,
 //     },
-//    ConfirmPassword: {
+//     price: {
+//         type: Number,
+//         required: true,
+//     },
+//     imageUrl: {
 //         type: String,
-       
+//         required: true,
 //     }
 // });
 
-const  UserSchema = new mongoose.Schema({
-   FullName:{type:String},
-    Email:{type:String},
-    Password:{type:String},
-    ConfirmPassword:{type:String}
-});
 
-const RentalSchema = new mongoose.Schema({
-    toolName: {
-        type: String,
-        required: true,
+// // 2. Define Tool Schema
+
+
+// const Rental = mongoose.model("Rental", RentalSchema);
+
+// module.exports = { User ,Rental};
+
+// currently usable code 
+
+const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
+
+/* =======================
+   🧑‍🌾 USER SCHEMA
+======================= */
+const UserSchema = new mongoose.Schema(
+  {
+    fullName: {
+      type: String,
+      required: [true, "Full name is required"],
+      trim: true,
     },
-    location: {
-        type: String,
-        required: true,
+    email: {
+      type: String,
+      required: [true, "Email is required"],
+      unique: true,
+      lowercase: true,
+      trim: true,
     },
-    price: {
-        type: Number,
-        required: true,
+    password: {
+      type: String,
+      required: [true, "Password is required"],
     },
-    imageUrl: {
-        type: String,
-        required: true,
+    phone:{
+      type: Number,
+      required: [true],
+    },
+    location:{
+      type:String,
+      required:[true],
     }
-});
-// yha tak
-//  ENCRYPTION ON USER DATA 
+  },
+  { timestamps: true }
+);
 
-// UserSchema.pre("save",async function(next){
-   
-//     this.Password= await bcrypt.hash(this.Password,10);
-//     this.ConfirmPassword=await bcrypt.hash(this.ConfirmPassword,10);
-//     next();
-    
-// })
-
+// ✅ Hash password before saving
 UserSchema.pre("save", async function (next) {
-    if (!this.Password ) {
-        return next(new Error("Password are required"));
-    }
+  if (!this.password) return next(new Error("Password is required"));
 
-    // Hash only if the Password field is modified
-    if (this.isModified("Password")) {
-        this.Password = await bcrypt.hash(this.Password, 10);
-    }
+  if (this.isModified("password")) {
+    this.password = await bcrypt.hash(this.password, 10);
+  }
 
-   
-
-    console.log("After Hashing - Password:", this.Password);
-
-    next();
+  console.log("After Hashing - Password:", this.password);
+  next();
 });
 
+/* =======================
+   🧰 RENTAL SCHEMA
+======================= */
+const RentalSchema = new mongoose.Schema({
+  toolName: {
+    type: String,
+    required: true,
+  },
+  location: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  imageUrl: {
+    type: String,
+    required: true,
+  },
+});
 
-
-
-
-const Rental = mongoose.model("Rental", RentalSchema);
-
-const User = mongoose.model("User", UserSchema);
+/* =======================
+   ✅ FIX: Prevent OverwriteModelError
+======================= */
+const User = mongoose.models.User || mongoose.model("User", UserSchema);
+const Rental = mongoose.models.Rental || mongoose.model("Rental", RentalSchema);
 
 module.exports = { User, Rental };
+

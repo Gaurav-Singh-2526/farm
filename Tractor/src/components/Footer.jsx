@@ -6,8 +6,7 @@ const Footer = () => {
   return (
     <footer className= "main-footer">
             <div className="cont-footer">
-            <p > Made 💗 by Gaurav singh and 🔥  
-            Aryan singh</p>
+            <p > Made 💗 by Gaurav singh</p>
             </div>
           </footer>
   );
