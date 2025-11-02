@@ -10,7 +10,6 @@
   "buildCommand": "npm install && npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "ignoreCommand": "echo 'No ignore'",
   "env": {
     "NODE_ENV": "production"
   }
