@@ -3,7 +3,8 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/", // 👈 Important for Vercel routing
+  base: "/", // important for correct routing
+  plugins: [react()],
   server: {
     proxy: {
       "/api": {
@@ -13,5 +14,7 @@ export default defineConfig({
       },
     },
   },
-  plugins: [react()],
-});
+  build: {
+    outDir: "dist", // make sure this folder is created after build
+  }
+})
