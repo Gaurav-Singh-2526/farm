@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1740028679188,
+    "name": "Tractor",
+    "description": "A tractor is a powerful vehicle designed to perform heavy-duty tasks in agriculture and construction.",
+    "imageUrl": "/images/about-home.jpg"
+  },
+  {
+    "id": 1740028941686,
+    "name": "Trolly",
+    "description": "A trolley is a wheeled cart or vehicle used to transport items or passengers, often powered by electricity in public transit or used for carrying goods in various settings.",
+    "imageUrl": "/images/mini-tractor-trolley.jpeg"
+  },
+  {
+    "id": 1740029063890,
+    "name": "Cultivator",
+    "description": "A cultivator is a tool used to loosen soil and control weeds before planting.",
+    "imageUrl": "/images/cultivator.jpg"
+  },
+  {
+    "id": 1740029209341,
+    "name": "Wheat thresher",
+    "description": "A wheat-thresher is a machine that separates wheat grains from stalks and chaff during harvest.",
+    "imageUrl": "/images/wheat-thresher.jpeg"
+  },
+  {
+    "id": 1740029473547,
+    "name": "Wheel Hand ",
+    "description": "A wheel hand tractor is a compact, manually-operated machine with wheels, designed for small-scale farming tasks like tilling, plowing, and cultivating.",
+    "imageUrl": "/images/tractor-wheel-tool.jpeg"
+  },
+  {
+    "id": 1740029867984,
+    "name": "Compass",
+    "description": "A wheat cutting compass machine is an agricultural tool designed to precisely cut wheat stalks at a uniform height, ensuring a consistent and efficient harvest.",
+    "imageUrl": "/images/compass.jpg"
+  }
+]

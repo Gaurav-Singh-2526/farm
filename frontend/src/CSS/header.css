@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main header */
+.main-header {
+  width: auto;
+  height: auto;
+  background-color: rgba(245, 237, 237, 0.845);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 10px 20px;
+  position: relative;
+  z-index: 1000;
+}
+
+/* Logo */
+.content-1 .logo img {
+  width: 100px;
+}
+
+/* Navbar links (desktop) */
+.navs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  list-style: none;
+  align-items: center;
+}
+
+.navs .nav-links {
+  text-decoration: none;
+  color: rgba(95, 194, 183, 0.822);
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.navs .nav-links:hover {
+  color: rgb(23, 232, 173);
+}
+
+/* Login button */
+.content-2 {
+  align-items: flex-end;
+  margin-left: 14px;
+}
+
+.content-2 .login button {
+  width: auto;
+  padding: 6px 12px;
+  border: none;
+  background-color: rgba(95, 194, 183, 0.822);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.content-2 .login button:hover {
+  background-color: rgb(23, 232, 173);
+}
+
+.menu button {
+  background: none;
+  border: none;
+  /* font-size: 26px; */
+  cursor: pointer;
+}
+
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .navs .nav-links {
+    font-size: 14px;
+  }
+.menu{
+  display: block;
+}
+  .content-2 .login button {
+    font-size: 12px;
+  }
+
+  .navs .nav-links:hover {
+    color: #06fee5;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* Show hamburger, hide normal nav */
+  .menu {
+    display: block;
+  }
+
+  .menu-web {
+    display: none;
+  }
+
+
+  /* Sidebar menu */
+  .menu-mobile{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;  /* Sidebar from right */
+    height: 100vh;
+    width: 250px;
+    background-color: rgba(245, 237, 237, 0.97);
+    padding: 20px;
+    transform: translateX(100%); /* Hidden */
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+  }
+  .menu-mobile.open {
+    transform: translateX(0); /* Slide in */
+  }
+
+  /* Close Button */
+  .menu-mobile .close-btn {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    color: rgba(95, 194, 183, 0.822);
+    transition: 0.3s;
+  }
+
+  .menu-mobile .close-btn:hover {
+    color: rgb(23, 232, 173);
+  }
+
+  /* Mobile nav links */
+  .menu-mobile .nav-links {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+
+  .menu-mobile .content-2 {
+    margin-top: 20px;
+  }
+}
